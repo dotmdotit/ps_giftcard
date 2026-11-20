@@ -57,7 +57,7 @@ Modulo PrestaShop per vendere **gift card**. Il cliente sceglie un modello grafi
 2. La cartella del modulo **deve chiamarsi `dotmgiftcard`**. Lo ZIP di GitHub contiene la cartella `ps_giftcard-main`: rinominala e ricrea lo ZIP.
    ```sh
    unzip ps_giftcard-main.zip && mv ps_giftcard-main dotmgiftcard
-   zip -r dotmgiftcard.zip dotmgiftcard -x '*.git*' -x '*/CLAUDE.md'
+   zip -r dotmgiftcard.zip dotmgiftcard -x '*.git*'
    ```
 3. In back office: *Moduli → Gestione moduli → Carica un modulo* e scegli `dotmgiftcard.zip`.
    In alternativa copia la cartella in `modules/dotmgiftcard/` sul server e installa il modulo dal Gestore moduli.
