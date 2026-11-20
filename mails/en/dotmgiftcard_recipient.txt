@@ -1,0 +1,20 @@
+{shop_name}
+
+You received a gift card
+
+Hi {gc_recipient},
+{gc_sender} sent you a gift card worth {gc_amount} to spend at {shop_name}.
+
+Message: {gc_message_txt}
+
+Code: {gc_code}
+{gc_amount} - {gc_expire}
+
+How to use it: choose your products and enter the code in the cart, in the discount code field.
+{gc_usage}
+
+The gift card is attached as a PDF, to print or keep.
+
+Check balance and expiry: {gc_balance_url}
+
+{shop_url}

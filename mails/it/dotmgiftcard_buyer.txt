@@ -1,0 +1,20 @@
+{shop_name}
+
+La tua gift card è pronta
+
+Ciao,
+grazie per l’acquisto: ecco la gift card da {gc_amount}. In allegato trovi il PDF da stampare o inoltrare.
+
+Messaggio: {gc_message_txt}
+
+Codice: {gc_code}
+{gc_amount} - {gc_expire}
+
+Come usarla: scegli i prodotti e inserisci il codice nel carrello, nel campo dei codici sconto.
+{gc_usage}
+
+PDF: {gc_pdf_url}
+
+Verifica saldo e scadenza: {gc_balance_url}
+
+{shop_url}

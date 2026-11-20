@@ -1,0 +1,686 @@
+/* dotmgiftcard — gift card. Colori neutri; il colore dei pulsanti (--dgc-accent) arriva dalla
+   configurazione del modulo tramite l'attributo style dei contenitori. Il tema può ridefinire le variabili. */
+.dgc {
+  --dgc-accent: #2b2b2b;
+  --dgc-accent-dark: #000000;
+  --dgc-ink: #222222;
+  --dgc-muted: #666666;
+  --dgc-line: #e5e5e5;
+  --dgc-line-strong: #d4d4d4;
+  --dgc-soft: #f5f5f5;
+  --dgc-card: #ffffff;
+  --dgc-error: #c0392b;
+  --dgc-ok: #2e7d4f;
+  --dgc-radius: 16px;
+  --dgc-font-display: inherit;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  color: var(--dgc-ink);
+  font-size: 16px;
+  line-height: 1.55;
+  text-align: left;
+}
+
+.dgc [hidden] {
+  display: none !important;
+}
+
+.dgc p {
+  margin: 0;
+}
+
+.dgc label,
+.dgc .dgc-field > span {
+  text-align: left;
+}
+
+/* pagina: titolo centrato come l'area clienti */
+body[id^="module-dotmgiftcard-"] #main .page-header {
+  margin: 0 0 20px;
+  padding: 0;
+  border: 0;
+  background: none;
+  text-align: center;
+}
+
+body[id^="module-dotmgiftcard-"] #main .page-header h1 {
+  margin: 0;
+  font-family: var(--dgc-font-display, inherit);
+  font-size: 40px;
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  text-transform: none;
+}
+
+body#module-dotmgiftcard-buy #main .page-content,
+body#module-dotmgiftcard-balance #main .page-content {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.dgc-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  max-width: 680px;
+  margin: 0 auto;
+  text-align: center;
+  color: var(--dgc-muted);
+}
+
+.dgc-kicker {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--dgc-accent);
+}
+
+.dgc-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 28px;
+  border: 1px solid var(--dgc-line);
+  border-radius: var(--dgc-radius);
+  background: var(--dgc-card);
+}
+
+.dgc-card-narrow {
+  width: 100%;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.dgc .dgc-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  font-family: var(--dgc-font-display);
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.2;
+  text-transform: none;
+  color: var(--dgc-ink);
+}
+
+.dgc-step-n {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--dgc-accent);
+  color: #fff;
+  font-size: 15px;
+}
+
+.dgc-muted {
+  color: var(--dgc-muted);
+}
+
+.dgc-small {
+  font-size: 14px;
+}
+
+.dgc-center {
+  text-align: center;
+}
+
+.dgc-alert {
+  padding: 14px 18px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.dgc-alert-error {
+  border: 1px solid var(--dgc-error);
+  background: #fdf1ef;
+  color: var(--dgc-error);
+}
+
+/* pulsanti */
+.dgc-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 50px;
+  padding: 0 26px;
+  border: 2px solid var(--dgc-accent);
+  border-radius: 12px;
+  background: var(--dgc-accent);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1.1;
+  text-align: center;
+  text-decoration: none;
+  text-transform: none;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.dgc-btn:hover,
+.dgc-btn:focus {
+  border-color: var(--dgc-accent-dark);
+  background: var(--dgc-accent-dark);
+  color: #fff;
+  text-decoration: none;
+}
+
+.dgc-btn:focus-visible {
+  outline: 3px solid var(--dgc-accent);
+  outline-offset: 2px;
+}
+
+.dgc-btn-ghost {
+  background: transparent;
+  color: var(--dgc-accent);
+}
+
+.dgc-btn-ghost:hover {
+  background: var(--dgc-accent);
+  color: #fff;
+}
+
+.dgc-btn-sm {
+  min-height: 40px;
+  padding: 0 16px;
+  font-size: 14px;
+}
+
+.dgc-link {
+  color: var(--dgc-accent);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* layout acquisto */
+.dgc-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  align-items: start;
+  gap: 24px;
+}
+
+.dgc-main {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+}
+
+.dgc-aside-inner {
+  position: sticky;
+  top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 22px;
+  border: 1px solid var(--dgc-line);
+  border-radius: var(--dgc-radius);
+  background: var(--dgc-soft);
+}
+
+/* filtri per occasione */
+.dgc-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.dgc-chip {
+  padding: 6px 14px;
+  border: 1px solid var(--dgc-line-strong);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--dgc-ink);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.dgc-chip.is-active {
+  border-color: var(--dgc-accent);
+  background: var(--dgc-accent);
+  color: #fff;
+}
+
+/* modelli */
+.dgc-templates {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 14px;
+}
+
+.dgc-tpl {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.dgc-tpl input,
+.dgc-amount input,
+.dgc-option input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.dgc-tpl-img {
+  display: block;
+  aspect-ratio: 1200 / 756;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  background: var(--dgc-soft) center / cover no-repeat;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.dgc-tpl:hover .dgc-tpl-img {
+  transform: translateY(-2px);
+}
+
+.dgc-tpl input:checked + .dgc-tpl-img {
+  border-color: var(--dgc-accent);
+  box-shadow: 0 0 0 3px var(--dgc-card), 0 0 0 5px var(--dgc-accent);
+}
+
+.dgc-tpl input:focus-visible + .dgc-tpl-img {
+  outline: 3px solid var(--dgc-accent);
+  outline-offset: 3px;
+}
+
+.dgc-tpl-name {
+  font-size: 14px;
+}
+
+/* modalità di consegna */
+.dgc-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.dgc-option {
+  position: relative;
+  margin: 0;
+  cursor: pointer;
+}
+
+.dgc-option > span {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  height: 100%;
+  padding: 16px 18px;
+  border: 2px solid var(--dgc-line);
+  border-radius: 12px;
+  background: #fff;
+  transition: border-color 0.15s ease;
+}
+
+.dgc-option small {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--dgc-muted);
+}
+
+.dgc-option input:checked + span {
+  border-color: var(--dgc-accent);
+  background: var(--dgc-soft);
+}
+
+.dgc-option input:focus-visible + span,
+.dgc-amount input:focus-visible + span {
+  outline: 3px solid var(--dgc-accent);
+  outline-offset: 2px;
+}
+
+/* importi */
+.dgc-amounts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.dgc-amounts > p {
+  flex: 0 0 100%;
+}
+
+.dgc-amount {
+  position: relative;
+  margin: 0;
+  cursor: pointer;
+}
+
+.dgc-amount span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 96px;
+  min-height: 52px;
+  padding: 0 18px;
+  border: 2px solid var(--dgc-line-strong);
+  border-radius: 12px;
+  background: #fff;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.dgc-amount input:checked + span {
+  border-color: var(--dgc-accent);
+  background: var(--dgc-accent);
+  color: #fff;
+}
+
+/* campi */
+.dgc-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.dgc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.dgc-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0;
+  font-weight: 400;
+}
+
+.dgc-field > span {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.dgc-field em {
+  font-style: normal;
+  font-weight: 400;
+}
+
+.dgc-field input,
+.dgc-field textarea,
+.dgc-qty input {
+  width: 100%;
+  min-height: 48px;
+  padding: 10px 14px;
+  border: 1px solid var(--dgc-line-strong);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--dgc-ink);
+  font-size: 16px;
+  box-shadow: none;
+}
+
+.dgc-field textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.dgc-field input:focus,
+.dgc-field textarea:focus,
+.dgc-qty input:focus {
+  border-color: var(--dgc-accent);
+  outline: 2px solid var(--dgc-accent);
+  outline-offset: 0;
+}
+
+.dgc-field input.is-invalid {
+  border-color: var(--dgc-error);
+}
+
+.dgc-counter {
+  align-self: flex-end;
+  font-size: 13px;
+}
+
+.dgc-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+.dgc-qty {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.dgc-qty input {
+  width: 96px;
+  text-align: center;
+}
+
+.dgc-btn-confirm {
+  flex: 1 1 260px;
+}
+
+/* anteprima della carta */
+.dgc-giftcard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  aspect-ratio: 1200 / 756;
+  padding: 16px 18px;
+  border-radius: 14px;
+  background: #222 center / cover no-repeat;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+  color: #fff;
+  overflow: hidden;
+}
+
+.dgc-giftcard-shop {
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.dgc-giftcard-label {
+  margin-top: auto;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.dgc-giftcard-amount {
+  font-size: 34px;
+  font-weight: 800;
+  line-height: 1.05;
+}
+
+.dgc-dedication {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow-wrap: anywhere;
+}
+
+.dgc-dedication-to {
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.dgc-dedication-msg {
+  font-style: italic;
+  white-space: pre-line;
+  color: var(--dgc-ink);
+}
+
+.dgc-dedication-from {
+  color: var(--dgc-muted);
+}
+
+/* saldo */
+.dgc-code-input {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.dgc-code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  letter-spacing: 0.04em;
+}
+
+.dgc-data {
+  display: grid;
+  grid-template-columns: minmax(0, 160px) minmax(0, 1fr);
+  gap: 8px 16px;
+  margin: 0;
+  padding-top: 16px;
+  border-top: 1px solid var(--dgc-line);
+}
+
+.dgc-data dt {
+  font-weight: 400;
+  color: var(--dgc-muted);
+}
+
+.dgc-data dd {
+  margin: 0;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.dgc-balance {
+  font-size: 26px;
+  line-height: 1.1;
+}
+
+.dgc-badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: var(--dgc-soft);
+  color: var(--dgc-muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.dgc-badge-active {
+  background: #e7f4ec;
+  color: var(--dgc-ok);
+}
+
+.dgc-badge-cancelled,
+.dgc-badge-expired {
+  background: #fdf1ef;
+  color: var(--dgc-error);
+}
+
+/* area clienti */
+.dgc-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.dgc-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 16px;
+  border: 1px solid var(--dgc-line);
+  border-radius: 12px;
+}
+
+.dgc-thumb {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: flex-end;
+  width: 112px;
+  aspect-ratio: 1200 / 756;
+  padding: 6px 8px;
+  border-radius: 8px;
+  background: #222 center / cover no-repeat;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.dgc-item-info {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  font-size: 14px;
+  color: var(--dgc-muted);
+}
+
+.dgc-item-info strong {
+  color: var(--dgc-ink);
+}
+
+.dgc-item-info > strong {
+  font-size: 16px;
+}
+
+.dgc-hp {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+@media (max-width: 991px) {
+  .dgc-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .dgc-aside {
+    order: -1;
+  }
+
+  .dgc-aside-inner {
+    position: static;
+  }
+
+  .dgc-giftcard {
+    max-width: 380px;
+  }
+}
+
+@media (max-width: 767px) {
+  body[id^="module-dotmgiftcard-"] #main .page-header h1 { font-size: 30px; }
+  .dgc-card { padding: 20px 16px; }
+  .dgc-grid { grid-template-columns: 1fr; }
+  .dgc-templates { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .dgc-data { grid-template-columns: 1fr; gap: 2px; }
+  .dgc-data dd { margin-bottom: 8px; }
+  .dgc-item { flex-wrap: wrap; }
+  .dgc-btn-confirm { width: 100%; }
+}

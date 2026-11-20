@@ -1,0 +1,14 @@
+{shop_name}
+
+Gift card consegnata
+
+Ciao,
+la gift card da {gc_amount} per {gc_recipient} è stata inviata a {gc_recipient_email}.
+
+Codice: {gc_code} - {gc_expire}
+
+Ti scriviamo solo per conferma: non devi fare nulla.
+
+Verifica saldo e scadenza: {gc_balance_url}
+
+{shop_url}

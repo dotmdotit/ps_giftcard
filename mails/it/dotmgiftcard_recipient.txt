@@ -1,0 +1,20 @@
+{shop_name}
+
+Hai ricevuto una gift card
+
+Ciao {gc_recipient},
+{gc_sender} ti ha regalato una gift card da {gc_amount} da usare su {shop_name}.
+
+Messaggio: {gc_message_txt}
+
+Codice: {gc_code}
+{gc_amount} - {gc_expire}
+
+Come usarla: scegli i prodotti e inserisci il codice nel carrello, nel campo dei codici sconto.
+{gc_usage}
+
+In allegato trovi la gift card in PDF, da stampare o conservare.
+
+Verifica saldo e scadenza: {gc_balance_url}
+
+{shop_url}

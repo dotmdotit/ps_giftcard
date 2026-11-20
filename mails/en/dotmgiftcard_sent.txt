@@ -1,0 +1,14 @@
+{shop_name}
+
+Gift card delivered
+
+Hi,
+the gift card worth {gc_amount} for {gc_recipient} has been sent to {gc_recipient_email}.
+
+Code: {gc_code} - {gc_expire}
+
+This is just a confirmation: there is nothing you need to do.
+
+Check balance and expiry: {gc_balance_url}
+
+{shop_url}

@@ -1,0 +1,20 @@
+{shop_name}
+
+Your gift card is ready
+
+Hi,
+thank you for your purchase: here is your gift card worth {gc_amount}. The attached PDF is ready to print or forward.
+
+Message: {gc_message_txt}
+
+Code: {gc_code}
+{gc_amount} - {gc_expire}
+
+How to use it: choose your products and enter the code in the cart, in the discount code field.
+{gc_usage}
+
+PDF: {gc_pdf_url}
+
+Check balance and expiry: {gc_balance_url}
+
+{shop_url}
